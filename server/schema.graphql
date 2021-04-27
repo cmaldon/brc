@@ -1,0 +1,42 @@
+scalar GraphQLDate
+
+enum StatusType {
+  New
+  Assigned
+  Volunteer
+  Employee
+}
+
+type Employee {
+  _id: ID!  
+  id: Int!
+  id_num: String
+  firstName: String!
+  lastName: String!
+  status: StatusType!
+  department: String
+  created: GraphQLDate!
+}
+
+"Toned down Issue, used as inputs, without server generated values."
+input EmployeeInputs {
+  id: String
+  id_num: String
+  firstName: String!
+  lastName: String
+  "Optional, if not supplied, will be set to 'New'"
+  status: StatusType = New
+  department: String
+  created: GraphQLDate
+}
+
+##### Top level declarations
+type Query {
+  about: String!
+  employeeList: [Employee!]!
+}
+
+type Mutation {
+  setAboutMessage(message: String!): String
+  employeeAdd(employee: EmployeeInputs!): Employee!
+}

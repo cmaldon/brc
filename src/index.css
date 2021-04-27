@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+    padding: 4px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: pink;
+}
+
+table.bordered-table th, td {
+    border: 1px solid silver; 
+    padding: 4px;
+}
+
+table.bordered-table {
+    border-collapse: collapse;
+}
